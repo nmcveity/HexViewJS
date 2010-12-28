@@ -1,0 +1,98 @@
+<html>
+<head>
+	<style type="text/css">
+		table.defs { border-collapse: collapse; border-color: #568018; background: #E6FFC1; }
+		td.def { font-weight: bold; border: 1px solid; padding: 8px; }
+		td.desc { border: 1px solid; padding: 8px; }
+		body { background: darkgreen; padding: 16px; }
+		h1 { background: greenyellow; color: darkgreen; padding: 16px; width: 60%; }
+		h2 { background: greenyellow; color: darkgreen; padding: 16px; width: 60%; }
+		div.doc { background: white; color: black; padding: 16px; width: 60%; }
+		pre { overflow: auto; border-width: 1px 0px; border-style: solid; border-color: #568018; background: #E6FFC1; padding: 16px; }
+	</style>
+	<title>Hex view documentation</title>
+</head>
+<body>
+	<h1>Hex Viewer Documentation</h1>
+	<div class="doc">
+		Hex view is a javascript library that converts binary data embedded in a HTML document into a nicely formatted table reminiscent of a hex editor.
+		<ul>
+			<li><a href="#jquery">jQuery Requirements</a></li>
+			<li><a href="#hexview">Hex view scripts</a></li>
+			<li><a href="#adding">Adding a view</a></li>
+			<li><a href="#options">Display options</a></li>
+		</ul>
+	</div>
+	<a name="jquery"><h2>jQuery requirements</h2></a>
+	<div class="doc">
+		<p>The hexview library requires jQuery and if you don't already include jQuery, you'll need to do so with something like this:</p>
+		<blockquote>
+			<pre>
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" 
+    type="text/javascript"&gt;&lt;/script&gt;</pre>
+		</blockquote>
+	</div>
+	<a name="hexview"><h2>The hexview scripts</h2></a>
+	<div class="doc">
+		<p>You will need to include the hexview.js and hexview.default.css are included in your HTML document.  For example:</p>
+		<blockquote>
+			<pre>
+&lt;script src="hexview.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="hexview.default.css" /&gt;</pre>
+		</blockquote>
+	</div>
+	<a name="adding"><h2>Adding a view</h2></a>
+	<div class="doc">
+		<p>To add a binary data view you need to place the binary data inside a &lt;div&gt; element marked with the class 'hexviewwindow'.  For example:
+		<blockquote>
+			<pre>
+&lt;div class='hexviewwindow' &gt;
+	&lt;!-- binary data goes here --&gt;
+&lt;/div&gt;</pre>
+		</blockquote>
+		<p>The hexview library will replace div blocks marked with this class with hex view windows once the document has finished loading.  To add the binary
+		   data it must first be encoded into base 64.  This task can easily be performed in another scripting environment such as Python.  The base 64 encoded
+		   binary data is then added as the text for the &lt;div&gt; element, like this:</p>
+		<blockquote>
+			<pre>
+	&lt;div class='hexviewwindow' &gt;
+	/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+	AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+	AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+	AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+	RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+&lt;/div&gt;</pre>
+		</blockquote>
+		<p>Note that we can split the encoded binary data into multiple lines because hexview will remove all whitespace before decoding the binary data. </p>
+	</div>
+	<a name="options"><h2>Display options</h2></a>
+	<div class="doc">
+		<p>You can set display formatting options by passing parameters to the hex view window via a form in the hex view &lt;div&gt; tag.  The following 
+		   options can be configured:</p>
+		<table class="defs">
+			<tr>
+				<td class="def">row_width</td>
+				<td class="desc">The number of bytes to show per row</td>
+			</tr>
+			<tr>
+				<td class="def">word_size</td>
+				<td class="desc">The word size to show.  Allows you to show the binary data in 1, 2 or 4 (or more) byte groups.
+			</tr>
+			<tr>
+				<td class="def">caption</td>
+				<td class="desc">Text to set in the output tables &lt;caption&gt; tag</td>
+			</tr>
+			<tr>
+				<td class="def">highlights</td>
+				<td class="desc">Determines parts of the binary data to be highlighted.  This string takes the format of a comma separated list of values
+					where each highlight is a tuple of 4 values: start_offset:end_offset:color:description.  For example, here is a single 
+					highlight:
+						<blockquote>4:20:#F4FA58:This is an interesting part</blockquote>
+					And here is a list of two highlights:
+						<blockquote>4:20:#F4FA58:This is an interesting part,36:56:#54FAF8:This is another interesting part</blockquote>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

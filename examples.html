@@ -1,0 +1,200 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Nick's Hex Viewer</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+	<script src="hexview.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function toggle_example(name, e)
+		{
+			var link = $("a#" + name)
+			var div = $("div#" + name + "_div")
+			
+			if (link.text() == "(show source)")
+			{
+				div.slideDown("slow")
+				link.text("(hide source)")
+			}
+			else
+			{
+				div.slideUp("slow")
+				link.text("(show source)")
+			}
+			
+			e.preventDefault();
+		}
+		
+		$(window).load(function () {
+			$("a#example1").click(function (e) { toggle_example('example1', e); })
+			$("a#example2").click(function (e) { toggle_example('example2', e); })
+			$("a#example3").click(function (e) { toggle_example('example3', e); })
+			$("a#example4").click(function (e) { toggle_example('example4', e); })
+		})
+	</script>
+	<link rel="stylesheet" type="text/css" href="hexview.default.css" />
+</head>
+<body>
+	
+	<p>A simple example showing the top of a random JPEG file:</p>
+	
+	<div class="hexviewwindow" title="JPEG file contents">
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		<form id="hexviewwindow_params">
+			<input type="hidden" name="highlights" value="" />
+			<input type="hidden" name="row_width" value="16" />
+			<input type="hidden" name="word_size" value="1" />
+			<input type="hidden" name="caption" value="JPEG file contents" />
+		</form>
+	</div>
+
+	<blockquote>
+		<a href="show" id="example1">(show source)</a>
+		<div id="example1_div" style="display: none;">
+			<pre>
+			
+	&lt;div class="hexviewwindow" title="JPEG file contents"&gt;
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		&lt;form id="hexviewwindow_params"&gt;
+			&lt;input type="hidden" name="highlights" value="" /&gt;
+			&lt;input type="hidden" name="row_width" value="16" /&gt;
+			&lt;input type="hidden" name="word_size" value="1" /&gt;
+			&lt;input type="hidden" name="caption" value="JPEG file contents" /&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+
+			</pre>
+		</div>
+	</blockquote>
+	<p>You can adjust the bytes per row:</p>
+	
+	<div class="hexviewwindow" title="JPEG file contents">
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		<form id="hexviewwindow_params">
+			<input type="hidden" name="highlights" value="" />
+			<input type="hidden" name="row_width" value="8" />
+			<input type="hidden" name="word_size" value="1" />
+			<input type="hidden" name="caption" value="JPEG file contents" />
+		</form>
+	</div>
+
+	<blockquote>
+		<a id="example2" href="nowhere">(show source)</a>
+		<div id="example2_div" style="display: none;">
+			<pre>
+			
+	&lt;div class="hexviewwindow" title="JPEG file contents"&gt;
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		&lt;form id="hexviewwindow_params"&gt;
+			&lt;input type="hidden" name="highlights" value="" /&gt;
+			&lt;input type="hidden" name="row_width" value="8" /&gt;
+			&lt;input type="hidden" name="word_size" value="1" /&gt;
+			&lt;input type="hidden" name="caption" value="JPEG file contents" /&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+
+			</pre>
+		</div>
+	</blockquote>
+	<p>And you can adjust the word size:</p>
+	
+	<div class="hexviewwindow" title="JPEG file contents">
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		<form id="hexviewwindow_params">
+			<input type="hidden" name="highlights" value="" />
+			<input type="hidden" name="row_width" value="16" />
+			<input type="hidden" name="word_size" value="4" />
+			<input type="hidden" name="caption" value="JPEG file contents" />
+		</form>
+	</div>
+
+	<blockquote>
+		<a id="example3" href="nowhere">(show source)</a>
+		<div id="example3_div" style="display: none;">
+			<pre>
+			
+	&lt;div class="hexviewwindow" title="JPEG file contents"&gt;
+		/9j/4AAQSkZJRgABAQEASABIAAD/4RzmRXhpZgAATU0AKgAAAAgADAEPAAIAAAAJ
+		AAAAngEQAAIAAAAQAAAAqAESAAMAAAABAAEAAAEaAAUAAAABAAAAuAEbAAUAAAAB
+		AAAAwAEoAAMAAAABAAIAAAExAAIAAAAvAAAAyAEyAAIAAAAUAAAA+AITAAMAAAAB
+		AAIAAIKYAAIAAAAFAAABDIdpAAQAAAABAAABEsSlAAcAAAAcAAAEkAAABKxGVUpJ
+		RklMTQAARmluZVBpeCBGNDU1ICAgAAAAAEgAAAABAAAASAAAAA==
+		&lt;form id="hexviewwindow_params"&gt;
+			&lt;input type="hidden" name="highlights" value="" /&gt;
+			&lt;input type="hidden" name="row_width" value="16" /&gt;
+			&lt;input type="hidden" name="word_size" value="4" /&gt;
+			&lt;input type="hidden" name="caption" value="JPEG file contents" /&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+
+			</pre>
+		</div>
+	</blockquote>
+	<p>Here is another example showing an executable file header, you can specify parts of the binary data to highlight:</p>
+	
+	<div class="hexviewwindow" title=".exe file header">
+		TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAAAAAAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5v
+		dCBiZSBydW4gaW4gRE9TIG1vZGUuDQ0KJAAAAAAAAABQRQAATAEHAMnPt0cAAAAA
+		AAAAAOAADgELAQMAAA4AAACeAQAAAAAAuRAAAAAQAAAAIAAAAABAAAAQAAAAAgAA
+		BAAAAAAAAAAEAAAAAAAAAAAAAgAABAAAzYhSAAIAAAAAABAAABAAAAAAEAAAEAAA
+		AAAAABAAAAAAAAAAAAAAAABAAAA8AAAAALABAExEAAAAAAAAAAAAADBFUgD4EgAA
+		AFAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAACgQAAAZAAAAAAAAAAAAAAAAAAA
+		<form id="hexviewwindow_params">
+			<input type="hidden" name="highlights" value="16:17:#F4FA58:Initial value of SP register,128:152:#54FAF8:Portable Executable signature and header" />
+			<input type="hidden" name="row_width" value="16" />
+			<input type="hidden" name="word_size" value="2" />
+			<input type="hidden" name="caption" value=".exe file header" />
+		</form>
+	</div>
+
+	<blockquote>
+		<a id="example4" href="nowhere">(show source)</a>
+		<div id="example4_div" style="display: none;">
+			<pre>
+			
+	&lt;div class="hexviewwindow" title=".exe file header"&gt;
+		TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAAAAAAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5v
+		dCBiZSBydW4gaW4gRE9TIG1vZGUuDQ0KJAAAAAAAAABQRQAATAEHAMnPt0cAAAAA
+		AAAAAOAADgELAQMAAA4AAACeAQAAAAAAuRAAAAAQAAAAIAAAAABAAAAQAAAAAgAA
+		BAAAAAAAAAAEAAAAAAAAAAAAAgAABAAAzYhSAAIAAAAAABAAABAAAAAAEAAAEAAA
+		AAAAABAAAAAAAAAAAAAAAABAAAA8AAAAALABAExEAAAAAAAAAAAAADBFUgD4EgAA
+		AFAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAACgQAAAZAAAAAAAAAAAAAAAAAAA
+		&lt;form id="hexviewwindow_params"&gt;
+			&lt;input type="hidden" name="highlights" value="16:17:#F4FA58:Initial value of SP register,128:152:#54FAF8:Portable Executable signature and header" /&gt;
+			&lt;input type="hidden" name="row_width" value="16" /&gt;
+			&lt;input type="hidden" name="word_size" value="2" /&gt;
+			&lt;input type="hidden" name="caption" value=".exe file header" /&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+
+			</pre>
+		</div>
+	</blockquote>
+	
+
+</body>
+</html>
