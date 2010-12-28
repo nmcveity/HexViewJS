@@ -9,12 +9,12 @@ A simple javascript library for rendering binary data into nicely formatted HTML
 Documentation
 -------------
 
-See the documentation.html included in the repository.
+See the documentation.html included in the repository or [here](http://s3.amazonaws.com/hexviewjs/documentation.html).
 
 Examples
 --------
 
-See the examples.html included in the repository.
+See the examples.html included in the repository or [here](http://s3.amazonaws.com/hexviewjs/examples.html).
 
 
 

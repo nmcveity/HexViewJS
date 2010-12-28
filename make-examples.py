@@ -38,6 +38,13 @@ doc_template = string.Template("""
 		})
 	</script>
 	<link rel="stylesheet" type="text/css" href="hexview.default.css" />
+	<style type="text/css">
+		body { background: darkgreen; padding: 16px; }
+		h1 { background: greenyellow; color: darkgreen; padding: 16px; width: 60%; }
+		h2 { background: greenyellow; color: darkgreen; padding: 16px; width: 60%; }
+		div.doc { background: white; color: black; padding: 16px; width: 60%; }
+		pre { overflow: auto; border-width: 1px 0px; border-style: solid; border-color: #568018; background: #E6FFC1; padding: 16px; }
+	</style>
 </head>
 <body>
 	${examples}
@@ -57,47 +64,59 @@ hex_template = string.Template("""
 """)
 
 example_template = string.Template("""
-	<p>A simple example showing the top of a random JPEG file:</p>
-	${first}
-	<blockquote>
-		<a href="show" id="example1">(show source)</a>
-		<div id="example1_div" style="display: none;">
-			<pre>
-			${first_source}
-			</pre>
-		</div>
-	</blockquote>
-	<p>You can adjust the bytes per row:</p>
-	${second}
-	<blockquote>
-		<a id="example2" href="nowhere">(show source)</a>
-		<div id="example2_div" style="display: none;">
-			<pre>
-			${second_source}
-			</pre>
-		</div>
-	</blockquote>
-	<p>And you can adjust the word size:</p>
-	${third}
-	<blockquote>
-		<a id="example3" href="nowhere">(show source)</a>
-		<div id="example3_div" style="display: none;">
-			<pre>
-			${third_source}
-			</pre>
-		</div>
-	</blockquote>
-	<p>Here is another example showing an executable file header, you can specify parts of the binary data to highlight:</p>
-	${fourth}
-	<blockquote>
-		<a id="example4" href="nowhere">(show source)</a>
-		<div id="example4_div" style="display: none;">
-			<pre>
-			${fourth_source}
-			</pre>
-		</div>
-	</blockquote>
-	
+	<h2>Basic usage</h2>
+	<div class="doc">
+		<p>A simple example showing the top of a random JPEG file:</p>
+		${first}
+		<blockquote>
+			<a href="show" id="example1">(show source)</a>
+			<div id="example1_div" style="display: none;">
+				<pre>
+				${first_source}
+				</pre>
+			</div>
+		</blockquote>
+	</div>
+	<h2>Row Width</h2>
+	<div class="doc">
+		<p>You can adjust the bytes per row:</p>
+		${second}
+		<blockquote>
+			<a id="example2" href="nowhere">(show source)</a>
+			<div id="example2_div" style="display: none;">
+				<pre>
+				${second_source}
+				</pre>
+			</div>
+		</blockquote>
+	</div>
+	<h2>Word Size</h2>
+	<div class="doc">
+		<p>And you can adjust the word size:</p>
+		${third}
+		<blockquote>
+			<a id="example3" href="nowhere">(show source)</a>
+			<div id="example3_div" style="display: none;">
+				<pre>
+				${third_source}
+				</pre>
+			</div>
+		</blockquote>
+	</div>
+	<h2>Highlighting</h2>
+	<div class="doc">
+		<p>Here is another example showing an executable file header, you can specify parts of the binary data to highlight:</p>
+		${fourth}
+		<p>Note that when you hover over the highlighted area it shows the user-defined comment for the highlight.</p>
+		<blockquote>
+			<a id="example4" href="nowhere">(show source)</a>
+			<div id="example4_div" style="display: none;">
+				<pre>
+				${fourth_source}
+				</pre>
+			</div>
+		</blockquote>
+	</div>
 """)
 
 def to_base64(f):
