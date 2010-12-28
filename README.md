@@ -15,6 +15,3 @@ Examples
 --------
 
 See the examples.html included in the repository or [here](http://s3.amazonaws.com/hexviewjs/examples.html).
-
-
-
