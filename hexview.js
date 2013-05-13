@@ -74,12 +74,15 @@
 			var params = title.split(':')
 			var step = parseInt($("form#hexviewwindow_params input[name='row_width']", div).attr("value"))
 			var word_size = parseInt($("form#hexviewwindow_params input[name='word_size']", div).attr("value"))
+			var hide_0x = parseInt($("form#hexviewwindow_params input[name='hide_0x']", div).attr("value"))
+			var decimal_offset = parseInt($("form#hexviewwindow_params input[name='decimal_offset']", div).attr("value"))
+			var start_byte_1 = parseInt($("form#hexviewwindow_params input[name='start_byte_1']", div).attr("value"))
 			var caption = $("form#hexviewwindow_params input[name='caption']", div).attr("value")
 			
 			div.text("")
 			div.append("<table></table>")
 			
-			var offset = 0
+			var offset = (start_byte_1 ? 1 : 0)
 
 			function apply_highlights(index)
 			{
@@ -120,7 +123,7 @@
 			
 				$("table", div).addClass("hexviewerwindow_table")
 				$("table", div).append("<tr></tr>").addClass("hexviewerwindow")
-				$("table tr:last", div).append("<td>0x" + dec_to_hex8(offset) + "</td>")
+				$("table tr:last", div).append("<td>" + (decimal_offset ? ("00000000"+offset).slice(-8) : "0x" + dec_to_hex8(offset)) + "</td>")
 				$("table tr td:last", div).addClass("hexviewerwindow_offset")
 				
 				var runlen = 0
@@ -134,7 +137,7 @@
 						num += dec2_to_hex(line_data.charCodeAt(i+j))
 					}
 					
-					$("table tr:last", div).append("<td>0x" + num + "</td>")
+					$("table tr:last", div).append("<td>" + (hide_0x ? "" : "0x") + num + "</td>")
 
 					apply_highlights(offset+i)
 				}
